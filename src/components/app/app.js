@@ -1,7 +1,7 @@
-import Loader from "../loader";
+import Flights from "../flights";
 
 function App() {
-  return <Loader />;
+  return <Flights />;
 }
 
 export default App;

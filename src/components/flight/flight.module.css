@@ -1,0 +1,27 @@
+.flight {
+  margin-top: 20px;
+}
+.header {
+  background-color: var(--blue);
+  color: var(--white);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px 10px;
+}
+.logo {
+  flex-grow: 1;
+}
+.price {
+  display: flex;
+  justify-content: right;
+  font-size: 25px;
+}
+.price_description {
+  display: flex;
+  justify-content: right;
+  font-size: 10px;
+}
+.legs {
+  padding: 15px;
+}

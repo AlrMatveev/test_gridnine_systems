@@ -1,0 +1,7 @@
+.time_line {
+  display: flex;
+  flex-direction: row;
+}
+.airport_uid {
+  color: var(--blue);
+}
