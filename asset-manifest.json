@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/test_gridnine_systems/static/css/main.3ae92e95.css",
+    "main.js": "/test_gridnine_systems/static/js/main.5b515faa.js",
+    "static/js/787.9f42b58f.chunk.js": "/test_gridnine_systems/static/js/787.9f42b58f.chunk.js",
+    "index.html": "/test_gridnine_systems/index.html",
+    "main.3ae92e95.css.map": "/test_gridnine_systems/static/css/main.3ae92e95.css.map",
+    "main.5b515faa.js.map": "/test_gridnine_systems/static/js/main.5b515faa.js.map",
+    "787.9f42b58f.chunk.js.map": "/test_gridnine_systems/static/js/787.9f42b58f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3ae92e95.css",
+    "static/js/main.5b515faa.js"
+  ]
+}
