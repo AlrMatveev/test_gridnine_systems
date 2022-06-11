@@ -1,7 +1,51 @@
+.leg {
+  border-top: 3px solid var(--blue);
+  padding: 15px;
+  font-size: 20px;
+}
 .time_line {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.duration {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
 }
 .airport_uid {
   color: var(--blue);
+}
+.caption {
+  display: flex;
+  align-items: center;
+}
+.transfer {
+  color: var(--orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  margin: 10px 0;
+}
+.transferInside {
+  padding: 0 10px;
+  background-color: var(--white);
+  z-index: 100;
+}
+.arrow {
+  color: var(--blue);
+}
+.transfer:before {
+  content: "";
+  border-top: 2px solid var(--grey-dark);
+  width: 10px;
+  position: absolute;
+  width: 80%;
+}
+.date {
+  color: var(--blue);
+  font-size: 18px;
 }

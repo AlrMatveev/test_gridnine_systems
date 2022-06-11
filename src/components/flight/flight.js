@@ -14,7 +14,7 @@ function Flight({ flight }) {
   return (
     <Box className={styles.flight}>
       <Box className={styles.header}>
-        <Box className={styles.logo}>LOGO</Box>
+        <Box className={styles.logo}>LOGO {flight.legs[0].airline}</Box>
         <Box>
           <Box className={styles.price}>
             {amount} {currency[currencyCode]}
@@ -24,11 +24,16 @@ function Flight({ flight }) {
           </Box>
         </Box>
       </Box>
-
-      <Box className={styles.legs}>
-        {flight.legs.map((leg, i) => {
-          return <Leg key={i} leg={leg} />;
-        })}
+      {flight.legs.map((leg, i) => {
+        return <Leg key={i} leg={leg} />;
+      })}
+      <Box
+        className={styles.button}
+        onClick={() => {
+          alert(flight.flightToken);
+        }}
+      >
+        ВЫБРАТЬ
       </Box>
     </Box>
   );

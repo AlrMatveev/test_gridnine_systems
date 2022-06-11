@@ -1,5 +1,7 @@
 .flight {
-  margin-top: 20px;
+  margin: 15px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 .header {
   background-color: var(--blue);
@@ -20,8 +22,15 @@
 .price_description {
   display: flex;
   justify-content: right;
-  font-size: 10px;
+  font-size: 14px;
 }
-.legs {
-  padding: 15px;
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  background-color: var(--orange);
+  height: 50px;
+  font-size: 20px;
+  cursor: pointer;
 }
