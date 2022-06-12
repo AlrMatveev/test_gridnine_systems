@@ -43,7 +43,7 @@
   border-top: 2px solid var(--grey-dark);
   width: 10px;
   position: absolute;
-  width: 80%;
+  width: 85%;
 }
 .date {
   color: var(--blue);
