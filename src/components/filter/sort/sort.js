@@ -1,32 +1,35 @@
 import { Box } from "@mui/material";
 import styles from "../filter.module.css";
+import { connect } from "react-redux";
+import { sort } from "../../../redux/actions";
+import { SORT, GROWTH, DECTEASE, ROAD } from "../../../redux/constants";
 
 const items = [
   {
     description: "по возрастанию цены",
-    value: "growth",
+    value: GROWTH,
   },
   {
     description: "по убыванию цены",
-    value: "decrease",
+    value: DECTEASE,
   },
   {
     description: "по времени пути",
-    value: "road",
+    value: ROAD,
   },
 ];
 
-function Sort() {
+function Sort({ sort }) {
   const handleChange = (e) => {
-    console.log(e.target.value);
+    sort(e.target.value);
   };
   return (
     <Box>
       <Box className={styles.header}>Сортировать</Box>
       <Box className={styles.body}>
-        {items.map((item) => {
+        {items.map((item, i) => {
           return (
-            <Box>
+            <Box key={i}>
               <input
                 name="sort"
                 type="radio"
@@ -42,4 +45,6 @@ function Sort() {
   );
 }
 
-export default Sort;
+const mapDispatchToProps = { sort };
+
+export default connect(null, mapDispatchToProps)(Sort);

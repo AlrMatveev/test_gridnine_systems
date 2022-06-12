@@ -18,7 +18,7 @@ function Flights({ flights }) {
   };
   return (
     <Box>
-      <TransitionGroup id="for_scrolling">
+      <TransitionGroup>
         {flights.slice(0, show).map((flight) => {
           return (
             <CSSTransition

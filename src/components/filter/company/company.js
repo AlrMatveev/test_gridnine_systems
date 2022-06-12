@@ -24,9 +24,9 @@ function Company() {
     <Box>
       <Box className={styles.header}>Авиакомпании</Box>
       <Box className={styles.body}>
-        {items.map((item) => {
+        {items.map((item, i) => {
           return (
-            <Box>
+            <Box key={i}>
               <input
                 type="checkbox"
                 value={item.value}

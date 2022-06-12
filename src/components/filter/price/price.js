@@ -2,10 +2,6 @@ import { Box, Slider } from "@mui/material";
 import styles from "../filter.module.css";
 import { useState } from "react";
 
-function valuetext(value) {
-  return `${value}°C`;
-}
-
 function Price() {
   const [value, setValue] = useState([20, 37]);
 

@@ -30,7 +30,7 @@ function Flight({ flight }) {
       <Box
         className={styles.button}
         onClick={() => {
-          alert(flight.flightToken);
+          alert("flightToken: " + flight.flightToken);
         }}
       >
         ВЫБРАТЬ

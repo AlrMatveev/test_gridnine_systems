@@ -20,6 +20,12 @@ export const flightsSelector = (state, { result }) => {
       flightToken: e.flightToken,
       price: e.flight.price.total,
       legs: legs,
+      totalDuration: legs.reduce(function (acc, leg) {
+        return acc.duration + leg.duration;
+      }),
+      totalTransfer: legs.reduce(function (acc, leg) {
+        return acc.transfer + leg.transfer;
+      }),
     };
   });
 };
