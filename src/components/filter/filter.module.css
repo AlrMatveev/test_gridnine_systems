@@ -22,3 +22,6 @@
   text-align: center;
   color: var(--blue);
 }
+.price {
+  font-size: 14px;
+}

@@ -1,7 +1,7 @@
 import { GROWTH, DECTEASE, ROAD } from "./constants";
 
 export const flightsSelector = (state, { result }) => {
-  return result.flights.map((e) => {
+  const resFlights = result.flights.map((e) => {
     const legs = e.flight.legs.map((e) => {
       return {
         departureCity: e.segments[0].departureCity,
@@ -27,10 +27,24 @@ export const flightsSelector = (state, { result }) => {
       }),
     };
   });
+
+  return resFlights;
+};
+
+export const bestPricesSelector = (state, { result }) => {
+  const subPrice = {};
+  result.bestPrices.ONE_CONNECTION.bestFlights.map((e) => {
+    subPrice[e.carrier.caption] =
+      e.price.amount.split(".")[0].replace(/\D+/g, "") +
+      " " +
+      e.price.currency[0];
+  });
+
+  return subPrice;
 };
 
 export const filterFlightsSelector = ({ flights, filters }) => {
-  let filterFlights = flights.map((e) => {
+  let filterFlights = flights.flights.map((e) => {
     return e;
   });
 
@@ -73,12 +87,12 @@ export const filterFlightsSelector = ({ flights, filters }) => {
 };
 
 function uniq_fast(a) {
-  var seen = {};
-  var out = [];
-  var len = a.length;
-  var j = 0;
-  for (var i = 0; i < len; i++) {
-    var item = a[i];
+  let seen = {};
+  let out = [];
+  let len = a.length;
+  let j = 0;
+  for (let i = 0; i < len; i++) {
+    let item = a[i];
     if (seen[item] !== 1) {
       seen[item] = 1;
       out[j++] = item;
@@ -88,7 +102,7 @@ function uniq_fast(a) {
 }
 
 export const transferListSelector = ({ flights }) => {
-  const transfers = flights
+  const transfers = flights.flights
     .map((flight) => {
       return flight.totalTransfer;
     })
@@ -97,7 +111,7 @@ export const transferListSelector = ({ flights }) => {
 };
 
 export const companyListSelector = ({ flights }) => {
-  const airline = flights
+  const airline = flights.flights
     .map((flight) => {
       return flight.legs[0].airline;
     })
@@ -106,7 +120,7 @@ export const companyListSelector = ({ flights }) => {
 };
 
 export const extremumListSelector = ({ flights }) => {
-  const prices = flights.map((flight) => {
+  const prices = flights.flights.map((flight) => {
     return flight.price.amount;
   });
   return [Math.min.apply(null, prices), Math.max.apply(null, prices)];

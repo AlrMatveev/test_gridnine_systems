@@ -1,15 +1,22 @@
 import flights from "../../flights.json";
 import produce from "immer";
-import { flightsSelector } from "../../redux/selectors";
+import { flightsSelector, bestPricesSelector } from "../../redux/selectors";
 import { SETFLIGHTS } from "../constants";
 
-export default (state = {}, action) =>
+const initialState = {
+  flights: [],
+  bestPrices: {},
+};
+
+export default (state = initialState, action) =>
   produce(state, (draft) => {
     const { type } = action;
 
     switch (type) {
       case SETFLIGHTS: {
-        return (draft = flightsSelector(state, flights));
+        draft.flights = flightsSelector(state, flights);
+        draft.bestPrices = bestPricesSelector(state, flights);
+        return draft;
       }
       default:
         return draft;
