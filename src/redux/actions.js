@@ -1,3 +1,20 @@
-import { SORT, GROWTH, DECTEASE, ROAD } from "./constants";
+import { SORT, TRANSFER, COMPANY, PRICE } from "./constants";
 
-export const sort = (how) => ({ type: SORT + how });
+export const sort = (data) => ({ type: SORT, data });
+
+export const setTransfer = (data, checked) => ({
+  type: TRANSFER,
+  data,
+  checked,
+});
+
+export const setCompany = (data, checked) => ({
+  type: COMPANY,
+  data,
+  checked,
+});
+
+export const setPrice = (data) => ({
+  type: PRICE,
+  data,
+});

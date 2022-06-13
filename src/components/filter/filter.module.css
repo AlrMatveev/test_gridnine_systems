@@ -18,3 +18,7 @@
 .body {
   margin: 15px;
 }
+.extremum {
+  text-align: center;
+  color: var(--blue);
+}

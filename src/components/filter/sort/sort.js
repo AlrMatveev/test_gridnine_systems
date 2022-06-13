@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import styles from "../filter.module.css";
 import { connect } from "react-redux";
 import { sort } from "../../../redux/actions";
-import { SORT, GROWTH, DECTEASE, ROAD } from "../../../redux/constants";
+import { GROWTH, DECTEASE, ROAD } from "../../../redux/constants";
 
 const items = [
   {

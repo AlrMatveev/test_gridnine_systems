@@ -10,3 +10,13 @@
   transform: scale(1);
   transition: 1000ms;
 }
+.noResult {
+  height: 100vh;
+  margin: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  vertical-align: center;
+  min-width: 700px;
+}

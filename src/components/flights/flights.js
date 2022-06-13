@@ -1,11 +1,12 @@
 import { connect } from "react-redux";
 import Flight from "../flight";
 import { Box, Button } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { filterFlightsSelector } from "../../redux/selectors";
 import "./flight.css";
 
-function Flights({ flights }) {
+function Flights({ filterFlights }) {
   const [show, setShow] = useState(2);
   const handleClick = () => {
     setShow(show + 2);
@@ -16,32 +17,41 @@ function Flights({ flights }) {
       });
     }, 1);
   };
+
+  if (filterFlights.length === 0) {
+    return <Box className="noResult">Нет полетов</Box>;
+  }
+
   return (
     <Box>
-      <TransitionGroup>
-        {flights.slice(0, show).map((flight) => {
-          return (
-            <CSSTransition
-              key={flight.flightToken}
-              timeout={1000}
-              classNames="my-node"
-            >
-              <Flight flight={flight} />
-            </CSSTransition>
-          );
-        })}
-      </TransitionGroup>
+      {/* <TransitionGroup> */}
+      {filterFlights.slice(0, show).map((flight) => {
+        return (
+          <Box key={flight.flightToken}>
+            {/* <CSSTransition
+            key={flight.flightToken}
+            timeout={1000}
+            classNames="my-node"
+          > */}
+            <Flight flight={flight} />
+            {/* </CSSTransition> */}
+          </Box>
+        );
+      })}
+      {/* </TransitionGroup> */}
       <Box sx={{ display: "flex", justifyContent: "center", m: 2 }}>
-        <Button variant="outlined" onClick={handleClick}>
-          Показать еще
-        </Button>
+        {filterFlights.length > show && (
+          <Button variant="outlined" onClick={handleClick}>
+            Показать еще
+          </Button>
+        )}
       </Box>
     </Box>
   );
 }
 
 const mapStateToProps = (state, props) => ({
-  flights: state.flights,
+  filterFlights: filterFlightsSelector(state),
 });
 
 export default connect(mapStateToProps)(Flights);

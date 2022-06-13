@@ -1,38 +1,26 @@
 import { Box } from "@mui/material";
 import styles from "../filter.module.css";
+import { connect } from "react-redux";
+import { companyListSelector } from "../../../redux/selectors";
+import { setCompany } from "../../../redux/actions";
 
-const items = [
-  {
-    description: "по возрастанию цены",
-    value: "growth",
-  },
-  {
-    description: "по убыванию цены",
-    value: "decrease",
-  },
-  {
-    description: "по времени пути",
-    value: "road",
-  },
-];
-
-function Company() {
+function Company({ company, setCompany }) {
   const handleChange = (e) => {
-    console.log(e.target.value);
+    setCompany(e.target.value, e.target.checked);
   };
   return (
     <Box>
       <Box className={styles.header}>Авиакомпании</Box>
       <Box className={styles.body}>
-        {items.map((item, i) => {
+        {company.map((item, i) => {
           return (
             <Box key={i}>
-              <input
-                type="checkbox"
-                value={item.value}
-                onChange={handleChange}
-              />
-              <span>{" - " + item.description}</span>
+              <input type="checkbox" value={item} onChange={handleChange} />
+              <span>
+                {item.length > 20
+                  ? " - " + item.slice(0, 14) + "...."
+                  : " - " + item}
+              </span>
             </Box>
           );
         })}
@@ -41,4 +29,10 @@ function Company() {
   );
 }
 
-export default Company;
+const mapStateToProps = (state) => ({
+  company: companyListSelector(state),
+});
+
+const mapDispatchToProps = { setCompany };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Company);

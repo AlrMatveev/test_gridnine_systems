@@ -9,6 +9,7 @@ import store from "./redux/store";
 
 // DEV ONLY!!!
 window.store = store;
+store.dispatch({ type: "SETFLIGHTS" });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

@@ -1,5 +1,11 @@
+export const SETFLIGHTS = "SETFLIGHTS";
+
 export const SORT = "SORT";
 
-export const GROWTH = "_GROWTH";
-export const DECTEASE = "_DECTEASE";
-export const ROAD = "_ROAD";
+export const GROWTH = "GROWTH";
+export const DECTEASE = "DECTEASE";
+export const ROAD = "ROAD";
+
+export const TRANSFER = "TRANSFER";
+export const COMPANY = "COMPANY";
+export const PRICE = "PRICE";
